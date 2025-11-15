@@ -1,0 +1,78 @@
+<%- include("header") %>
+
+<div class="contact-container">
+    <div class="contact-header">
+        <h1>Get in Touch</h1>
+        <p>Send us a message and we'll respond as soon as possible</p>
+    </div>
+
+    <div class="contact-grid">
+        <div class="contact-info-box">
+            <h2>Contact Information</h2>
+            <div class="contact-info-item">
+                <strong>Email:</strong>
+                <p>vipulbarot@example.com</p>
+            </div>
+            <div class="contact-info-item">
+                <strong>Phone:</strong>
+                <p>+91 99258 13540</p>
+            </div>
+            <div class="contact-info-item">
+                <strong>Address:</strong>
+                <p>03 SidhiVinayak Astrologer,Radhe Mall,Nr Khokhra Circle Ahmedabad Gujarat</p>
+            </div>
+        </div>
+
+        <div class="form-box">
+            <h2>Send a Message</h2>
+            <form action="/contact" method="POST">
+                <% if (errors && errors.length > 0) { %>
+                    <div class="form-errors">
+                        <strong>Errors:</strong>
+                        <ul>
+                            <% errors.forEach(function(err) { %>
+                                <li><%= err %></li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                <% } %>
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" value="<%= form.name || '' %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" value="<%= form.email || '' %>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="10-digit phone number" value="<%= form.phone || '' %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Consultation Topic" value="<%= form.subject || '' %>">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us how we can help..." required><%= form.message || '' %></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+
+            <div class="important-notice">
+                <h3>Important</h3>
+                <p>Phone number must be 10 digits if provided. Name, email, and message are required for a consultation request.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("footer1") %>
+</body>
+</html>

@@ -1,0 +1,236 @@
+/* About page styles */
+
+.about-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* About Header */
+.about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-header h1 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+
+.about-header p {
+    font-size: 1.2rem;
+    color: #D4AF37;
+    font-weight: 500;
+}
+
+/* About Content */
+.about-content {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.15) 0%, rgba(212, 175, 55, 0.08) 100%);
+    border: 2px solid #D4AF37;
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 1.8;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #E0E0E0;
+}
+
+.about-content strong {
+    color: #FFD700;
+    font-weight: 600;
+}
+
+.about-content h2 {
+    color: #FFD700;
+    margin: 2rem 0 1rem;
+    font-size: 1.8rem;
+    text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+/* Expertise Grid */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Expertise Items */
+.expertise-item {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.2) 0%, rgba(212, 175, 55, 0.1) 100%);
+    border-left: 4px solid #FFD700;
+    padding: 1.5rem;
+    border-radius: 5px;
+    animation: slideUp 0.8s ease-out forwards;
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.expertise-item:nth-child(1) { animation-delay: 0.2s; }
+.expertise-item:nth-child(2) { animation-delay: 0.4s; }
+.expertise-item:nth-child(3) { animation-delay: 0.6s; }
+.expertise-item:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.expertise-item:hover {
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.3) 0%, rgba(212, 175, 55, 0.2) 100%);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    border-color: #FFD700;
+}
+
+.expertise-item h3 {
+    color: #FFD700;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.expertise-item p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #D0D0D0;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 1199px) {
+    .about-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .about-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .about-header h1 {
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        padding: 2rem 1rem;
+    }
+    
+    .about-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .about-header p {
+        font-size: 1rem;
+    }
+    
+    .about-content {
+        padding: 1.5rem;
+    }
+    
+    .about-content p {
+        font-size: 1rem;
+    }
+    
+    .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-container {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .about-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .about-header p {
+        font-size: 0.95rem;
+    }
+    
+    .about-content {
+        padding: 1rem;
+        border-radius: 8px;
+    }
+    
+    .about-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+    
+    .about-content h2 {
+        font-size: 1.4rem;
+        margin: 1.5rem 0 0.75rem;
+    }
+    
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .expertise-item {
+        padding: 1rem;
+    }
+    
+    .expertise-item h3 {
+        font-size: 1.1rem;
+    }
+}

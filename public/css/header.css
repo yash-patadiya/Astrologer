@@ -1,0 +1,316 @@
+/* Header and Navigation Styles */
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #8B4513 0%, #D4AF37 50%, #8B4513 100%);
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown { 
+    from { 
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Nav Container */
+.nav-container { 
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+/* Nav Logo */
+.nav-logo { 
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: logoGlow 2s ease-in-out infinite;
+    letter-spacing: 0.5px;
+}
+
+@keyframes logoGlow { 
+    0%, 100% { 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 10px rgba(212,175,55,0.5);
+    }
+    50% {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(212,175,55,0.8);
+    }
+}
+
+/* Nav Menu */
+.nav-menu { 
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nav Item */
+.nav-item { 
+    margin: 0;
+    padding: 0;
+}
+
+/* Nav Link */
+.nav-link { 
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 0;
+}
+
+.nav-link:hover { 
+    color: #FFD700;
+}
+
+.nav-link::after { 
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #FFD700;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after { 
+    width: 100%;
+}
+
+/* Hamburger Menu */
+.hamburger { 
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span { 
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) { 
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) { 
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) { 
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Navigation */
+@media (max-width: 767px) {
+    .hamburger { 
+        display: flex;
+    }
+    
+    .nav-menu { 
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, #8B4513 0%, #D4AF37 50%, #8B4513 100%);
+        flex-direction: column;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        width: 100%;
+    }
+    
+    .nav-menu.active { 
+        max-height: 300px;
+    }
+    
+    .nav-item { 
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .nav-link { 
+        display: block;
+        padding: 1rem;
+    }
+}
+
+/* Custom Cursor */
+* { 
+    cursor: none;
+}
+
+.cursor { 
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), inset 0 0 10px rgba(255, 215, 0, 0.3);
+    animation: cursorGlow 1.5s ease-in-out infinite, cursorPulse 2s ease-in-out infinite;
+    transition: none;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.2), transparent);
+}
+
+@keyframes cursorGlow {
+    0%, 100% { 
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.6), inset 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    50% { 
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.8), inset 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+}
+
+@keyframes cursorPulse {
+    0%, 100% {
+        width: 30px;
+        height: 30px;
+    }
+    50% {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+.cursor::before { 
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle at 30% 30%, #FFD700, #FFA500);
+    border-radius: 50%;
+    animation: planetRotate 3s linear infinite;
+}
+
+@keyframes planetRotate {
+    0% { 
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% { 
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Cursor Trail Particles */
+.cursor-trail { 
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    animation: trailFloat 0.8s ease-out forwards;
+}
+
+@keyframes trailFloat {
+    from {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(20px, -20px) scale(0);
+    }
+}
+
+/* Planet Colors for Cursor Trail */
+.planet-mercury { 
+    background: radial-gradient(circle at 30% 30%, #8C7853, #A0826D);
+    box-shadow: 0 0 8px rgba(140, 120, 83, 0.6);
+}
+
+.planet-venus { 
+    background: radial-gradient(circle at 30% 30%, #FFC649, #FFB347);
+    box-shadow: 0 0 8px rgba(255, 198, 73, 0.6);
+}
+
+.planet-mars { 
+    background: radial-gradient(circle at 30% 30%, #E27B58, #CD5C5C);
+    box-shadow: 0 0 8px rgba(226, 123, 88, 0.6);
+}
+
+.planet-jupiter { 
+    background: radial-gradient(circle at 30% 30%, #C88B3A, #DAA520);
+    box-shadow: 0 0 8px rgba(200, 139, 58, 0.6);
+}
+
+.planet-saturn { 
+    background: radial-gradient(circle at 30% 30%, #F4A460, #DEB887);
+    box-shadow: 0 0 8px rgba(244, 164, 96, 0.6);
+}
+
+/* Scroll Progress Bar */
+#scroll-progress { 
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: linear-gradient(90deg, #FFD700, #FFA500 60%, #FFEC8B);
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.15);
+    z-index: 2000;
+    border-bottom-right-radius: 4px;
+    transition: width 120ms linear;
+    opacity: 1;
+}
+
+/* Hide Native Scrollbar */
+html, body { 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
+    background: transparent;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .nav-logo {
+        font-size: 1.5rem;
+    }
+    
+    .nav-menu {
+        gap: 0;
+    }
+}

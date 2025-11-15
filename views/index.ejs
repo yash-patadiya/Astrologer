@@ -1,0 +1,98 @@
+﻿<%- include("header") %>
+
+<script>
+    function generateStars() {
+        const starsContainer = document.getElementById("stars");
+        const starCount = window.innerWidth < 768 ? 50 : 100;
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement("div");
+            star.style.position = "fixed";
+            star.style.width = Math.random() * 2 + "px";
+            star.style.height = star.style.width;
+            star.style.backgroundColor = "#fff";
+            star.style.borderRadius = "50%";
+            star.style.left = Math.random() * window.innerWidth + "px";
+            star.style.top = Math.random() * window.innerHeight + "px";
+            star.style.zIndex = "-1";
+            star.style.opacity = Math.random() * 0.5 + 0.5;
+            starsContainer.appendChild(star);
+        }
+    }
+    generateStars();
+</script>
+
+<div class="stars" id="stars"></div>
+
+<section class="hero">
+    <h1>Welcome to Cosmic Wisdom</h1>
+    <p>Discover Your Destiny with Astrologer Vipul Barot</p>
+    <button class="cta-button">Get Your Reading</button>
+</section>
+
+<section class="services">
+    <h2>Our Services</h2>
+    <div class="service-cards">
+        <div class="service-card">
+            <h3> Natal Chart Reading</h3>
+            <p>Understand your personality and life purpose through your birth chart analysis.</p>
+        </div>
+        <div class="service-card">
+            <h3> Numerology</h3>
+            <p>Unlock the hidden meanings of numbers and their impact on your life journey.</p>
+        </div>
+        <div class="service-card">
+            <h3> Vastu Shastra</h3>
+            <p>Harmonize your living space with ancient principles for success and prosperity.</p>
+        </div>
+        <div class="service-card">
+            <h3> Auspicious Timings</h3>
+            <p>Find the perfect time for important events and decisions in your life.</p>
+        </div>
+    </div>
+</section>
+
+<section class="info-section">
+    <div class="section-header">
+        <h2>Why Choose Vipul Barot?</h2>
+    </div>
+    <div class="experience-box">
+        <div>20+ Years</div>
+        <div>of Experience</div>
+    </div>
+    <div class="grid-info">
+        <div class="info-item">
+            <strong>Expert Guidance</strong>
+            <p>Get personalized solutions for your life's challenges</p>
+        </div>
+        <div class="info-item">
+            <strong>Proven Results</strong>
+            <p>Thousands of satisfied clients worldwide</p>
+        </div>
+        <div class="info-item">
+            <strong>Ancient Wisdom</strong>
+            <p>Combining traditional knowledge with modern insights</p>
+        </div>
+        <div class="info-item">
+            <strong>24/7 Support</strong>
+            <p>Available for consultations anytime, anywhere</p>
+        </div>
+    </div>
+</section>
+
+<%- include("footer1") %>
+</body>
+</html>
+ <!-- <footer style="background-color: brown;">
+    <div class="footer-content">
+      <h3>Astrologer Vipul Barot</h3>
+      <p><strong>Expert in Astrology, Vastu Shastra & Numerology</strong></p>
+      <div class="footer-divider"></div>
+      <div>
+        <p>Available for consultations worldwide</p>
+        <p>Contact for personalized guidance</p>
+        <p>Transform your life through astrology</p>
+      </div>
+      <div class="footer-divider"></div>
+      <p>&copy; 2024 Astrologer Vipul Barot. All rights reserved.</p>
+    </div>
+  </footer> -->
