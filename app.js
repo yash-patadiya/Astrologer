@@ -14,7 +14,6 @@ app.use(express.json());
 const Contact = require('./models/contact');
 require('dotenv').config();
 // MongoDB connection
-const MONGODB_URI = process.env.MONGODB_URI;
 
 mongoose.connect(process.env.MONGO_CONNECTION)
   .then(() => console.log('Connected to MongoDB'))
