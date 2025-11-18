@@ -15,9 +15,7 @@ const Contact = require('./models/contact');
 require('dotenv').config();
 // MongoDB connection
 
-mongoose.connect(process.env.MONGO_CONNECTION)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch((err) => console.error('MongoDB connection error:', err.message));
+
 
 // View engine setup
 app.set('view engine', 'ejs');
@@ -32,7 +30,10 @@ app.get('/about', (req, res) => {
   res.render('about');
 });
 
-app.get('/contact', (req, res) => {
+app.get('/contact', async (req, res) => {
+   await mongoose.connect(process.env.MONGO_CONNECTION)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('MongoDB connection error:', err.message));
   // ensure the template always has `errors` and `form` available
   res.render('contact', { errors: [], form: {} });
 });
